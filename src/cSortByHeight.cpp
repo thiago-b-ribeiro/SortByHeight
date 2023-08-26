@@ -34,26 +34,32 @@ void cSortByHeight::SortVector(std::vector<int> & oVector)
         {
         if (*it != -1)
             {
+            m_oVectorTemp.push_back(*it);
+            }
+        }
 
-            int i = 1;
-            while (*(std::next(it, i)) == -1)
+    for (int i = 0; i < m_oVectorTemp.size(); ++i)
+        {
+        int j = i + 1;
+        for (; j < m_oVectorTemp.size(); ++j)
+            {
+            if (m_oVectorTemp[i] > m_oVectorTemp[j])
                 {
-                ++i;
-                }
-
-            if (*it > *(std::next(it, i)))
-                {
-                iTemp = *it;
-                *it = *(std::next(it, i));
-                *(std::next(it, 1)) = iTemp;
+                iTemp = m_oVectorTemp[i];
+                m_oVectorTemp[i] = m_oVectorTemp[j];
+                m_oVectorTemp[j] = iTemp;
                 }
             }
         }
-    
-    std::cout << "Vetor m_oVector ordenado: ";
-    for (std::vector<int>::iterator it = oVector.begin(); it != oVector.end(); ++it)
+
+    std::vector<int>::iterator itVectorTemp = m_oVectorTemp.begin();
+    for (std::vector<int>::iterator itVector = oVector.begin(); itVector != oVector.end(); ++itVector)
         {
-        std::cout << *it << " ";
+        if (*itVector != -1)
+            {
+            *itVector = *itVectorTemp;
+            ++itVectorTemp;
+            }
         }
     std::cout << std::endl;
     

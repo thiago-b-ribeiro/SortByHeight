@@ -16,18 +16,20 @@ int main ()
     cSortByHeight * oSortByHeight = new cSortByHeight();
     std::vector<int> oVector = {-1, 150, 190, 170, -1, -1, 160, 180};
 
-    // for (std::vector<int>::iterator it = oVector.begin(); it != oVector.end(); ++it)
-    //     {
-    //     std::cout << *it << " ";
-    //     }
+    std::cout << "Vetor inicial:" << std::endl;
+    for (std::vector<int>::iterator it = oVector.begin(); it != oVector.end(); ++it)
+        {
+        std::cout << *it << " ";
+        }
 
     oSortByHeight->SortVector(oVector);
 
-    // std::cout << std::endl;
-    // for (std::vector<int>::iterator it = oVector.begin(); it != oVector.end(); ++it)
-    //     {
-    //     std::cout << *it << " ";
-    //     }
+    std::cout << "Vetor ordenado:" << std::endl;
+    for (std::vector<int>::iterator it = oVector.begin(); it != oVector.end(); ++it)
+        {
+        std::cout << *it << " ";
+        }
+    std::cout << std::endl;
 
     return (0);
     }
